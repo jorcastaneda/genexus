@@ -140,14 +140,14 @@ La presente guía se realizó buscando los siguientes objetivos:
 
 	 ```javascript
     // mal
-    if &DocumentoTipo = DocumentoTipos.Venta
+    If &DocumentoTipo = DocumentoTipos.Venta
     msg( "Venta")
-    endif
+    EndIf
 
     // mal
-    if &DocumentoTipo = DocumentoTipo.Venta
+    If &DocumentoTipo = DocumentoTipo.Venta
     		msg( "Venta")
-    endif
+    EndIf
 
     // bien
     If &DocumentoTipo = DocumentoTipo.Venta
@@ -156,56 +156,56 @@ La presente guía se realizó buscando los siguientes objetivos:
     ```
 
   <a name="whitespace-where"></a><a name="2.2"></a>
-  - [2.2](#whitespace-where) Se deben identar las condiciónes y comandos dentro de un for each e indicar transacción.
+  - [2.2](#whitespace-where) Se deben identar las condiciónes y comandos dentro de un For each e indicar transacción.
 
 	 ```javascript
     // mal
-    for each
+    For each
     where DocumentoTipo = DocumentoTipo.Venta
     ...
-    endfor
+    EndFor
 
     // mal
-    for each
+    For each
     defined by ClienteNombre
     ...
-    endfor
+    EndFor
 
     // bien
-    for each Documento
+    For each Documento
         where DocumentoTipo = DocumentoTipo.Venta
 
         ...
-    endfor
+    EndFor
     ```
   <a name="whitespace-newline"></a><a name="2.3"></a>
-  - [2.3](#whitespace-newline) Si en un [for each](http://wiki.genexus.com/commwiki/servlet/wiki?24744,For%20Each%20command) se especifican where, defined by ú otros, dejar una línea en blanco antes del código.
+  - [2.3](#whitespace-newline) Si en un [For each](http://wiki.genexus.com/commwiki/servlet/wiki?24744,For%20Each%20command) se especifican where, defined by ú otros, dejar una línea en blanco antes del código.
 
 	```javascript
     // mal
-    for each
+    For each
        where DocumentoTipo = DocumentoTipo.Venta
-       if DocTot > LimCreMto
+       If DocTot > LimCreMto
           ...
-       endif
-    endfor
+       EndIf
+    EndFor
 
     // mal
-    for each
+    For each
        defined by ClienteNombre
-       for each Documentos
+       For each Documentos
           ...
-       endfor
-    endfor
+       EndFor
+    EndFor
 
     // bien
-    for each
+    For each
        where DocumentoTipo = DocumentoTipos.Venta
 
-       if DocTot > LimCreMto
+       If DocTot > LimCreMto
           ...
-       endif
-    endfor
+       EndIf
+    EndFor
 
     // bien
     For each Cliente
@@ -245,11 +245,11 @@ La presente guía se realizó buscando los siguientes objetivos:
 
     ```javascript
     // mal
-    if &HttpResponse = "GET"
+    If &HttpResponse = "GET"
 
     // bien
     // Utilizar el dominio reservado HTTPMethod con los posibles valores ( POST, GET)
-    if &HttpResponse = HTTPMethod.Get
+    If &HttpResponse = HTTPMethod.Get
     ```
 
   <a name="enums-use"></a><a name="3.2"></a>
@@ -292,17 +292,17 @@ La presente guía se realizó buscando los siguientes objetivos:
     // &Clientes lista de SDT:Cliente
 
     // mal
-    for each Cliente
+    For each Cliente
        &Cliente.ClienteNombre = ClienteNombre
        &Clientes.Add(&Cliente.Clone())
-    endfor
+    EndFor
 
     // bien
-    for each Cliente
+    For each Cliente
        &Cliente = new()
        &Cliente.ClienteNombre = ClienteNombre
        &Clientes.Add(&Cliente)
-    endfor
+    EndFor
     ```
   <a name="sdt-list"></a><a name="4.1"></a>
   - [4.1](#sdt-list) Desde que GeneXus permite definir variables como listas, evitar crear SDT del tipo lista.
@@ -505,17 +505,17 @@ La presente guía se realizó buscando los siguientes objetivos:
 
     ```javascript
     // mal
-    For Each Cliente
+    For each Cliente
        Where ClienteCodigo = &ClienteCodigo
        Msg(ClienteNombre)
     EndFor
 
     // bien
-    for each Cliente
+    For each Cliente
        where ClienteCodigo = &ClienteCodigo
 
        msg(ClienteNombre)
-    endfor
+    EndFor
 
     // mal
     &Fecha = YmdToD(2017, 01, 01)
@@ -572,7 +572,7 @@ La presente guía se realizó buscando los siguientes objetivos:
     ```
 
   <a name="commands--foreach-where"></a><a name="7.3"></a>
-  - [7.3](#commands--foreach-where) Utilizar clausula where en comandos [for each](http://wiki.genexus.com/commwiki/servlet/wiki?24744,For%20Each%20command) en lugar de usar comandos "if", siempre que se trate de atributos de la [tabla extendida](http://training.genexus.com/resumen-de-conceptos-fundamentales-de-genexus-es#tabla-base-y-tabla-extendida-resumen-de-conceptos-fundamentales).
+  - [7.3](#commands--foreach-where) Utilizar clausula where en comandos [For each](http://wiki.genexus.com/commwiki/servlet/wiki?24744,For%20Each%20command) en lugar de usar comandos "if", siempre que se trate de atributos de la [tabla extendida](http://training.genexus.com/resumen-de-conceptos-fundamentales-de-genexus-es#tabla-base-y-tabla-extendida-resumen-de-conceptos-fundamentales).
 	> Con esto logramos trasladar la condición al DBMS y hacer que forme parte de la query select evitando trabajar con grandes volumenes de datos en el servidor de aplicación ó eventualmente en el cliente.
 
     ```javascript
@@ -591,7 +591,7 @@ La presente guía se realizó buscando los siguientes objetivos:
     ```
 
   <a name="commands--foreach-when"></a><a name="7.4"></a>
-  - [7.4](#commands--foreach-when) Utilizar "when" en comandos [for each](http://wiki.genexus.com/commwiki/servlet/wiki?24744,For%20Each%20command) para simplificar la query enviada al DBMS.
+  - [7.4](#commands--foreach-when) Utilizar "when" en comandos [For each](http://wiki.genexus.com/commwiki/servlet/wiki?24744,For%20Each%20command) para simplificar la query enviada al DBMS.
 
     ```javascript
     // mal
