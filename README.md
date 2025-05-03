@@ -735,17 +735,6 @@ La presente guía se realizó buscando los siguientes objetivos:
 - [**Big Cheese**](https://bigcheese.com.uy)
 - [**Neuronic**](https://neuronic.com.ar/)
 
-
-
-**[Volver al inicio](#tabla-de-contenidos)**
-
-## Traducciones
-Esta guia de estilo se encuentra también en los siguientes lenguajes:
-
-  - ![us](https://raw.githubusercontent.com/gosquared/flags/master/flags/flags/shiny/24/United-States.png) [**English**](README_en.md) by [Laura Aguiar](https://uy.linkedin.com/in/laura-aguiar-396aa56)
-
-Basado en [la guia de Javascript de AirBNB](http://airbnb.io/javascript/)
-
 **[Volver al inicio](#tabla-de-contenidos)**
 
 ## Modificaciones al documento
