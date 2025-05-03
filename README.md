@@ -151,7 +151,7 @@ La presente guía se realizó buscando los siguientes objetivos:
 
     // bien
     If &DocumentoTipo = DocumentoTipo.Venta
-        msg( "Venta")
+        msg("Venta")
     EndIf
     ```
 
